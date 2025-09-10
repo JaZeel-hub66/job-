@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JobHub - Loading</title>
+    
+    <!-- Redirect after 2 seconds -->
+    <meta http-equiv="refresh" content="2; url=sign_in.html">
+
     <style>
         * {
             margin: 0;
@@ -100,20 +104,6 @@
             <div class="loader-ring"></div>
         </div>
         <div class="loading-text">JobHub</div>
-        
     </div>
-
-    <script>
-
-        setTimeout(function() {
-            document.getElementById('loadingPage').classList.add('fade-out');
-
-            setTimeout(function() {
-                window.location.href = "sign_in.html";
-            }, 400);
-            
-        }, 1000);
-    </script>
 </body>
-
 </html>

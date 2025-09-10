@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Left Side - Features */
+        .left-side {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            background: radial-gradient(circle at center, #150936 0%, #000000 70%);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .features-container {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .features-heading {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 0.6s ease forwards;
+        }
+
+        .feature-item:nth-child(2) { animation-delay: 0.2s; }
+        .feature-item:nth-child(3) { animation-delay: 0.4s; }
+        .feature-item:nth-child(4) { animation-delay: 0.6s; }
+        .feature-item:nth-child(5) { animation-delay: 0.8s; }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #401d9f, #12092b);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .feature-text {
+            color: #e0e0e0;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        /* Right Side - Register Form */
+        .right-side {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+                                   background: radial-gradient(circle at center, #04041b 0%, #000000 70%);
+
+            backdrop-filter: blur(10px);
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .form-container h2 {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .form-container .subtitle {
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-container input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .form-container input::placeholder {
+            color: #aaa;
+        }
+
+        .form-container input:focus {
+            outline: none;
+            border-color: #3f51b5;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+        }
+
+        .form-container select {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .form-container select:focus {
+            outline: none;
+            border-color: #3f51b5;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+        }
+
+        .form-container select option {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        .form-container button {
+             background: linear-gradient(135deg, #12092b, #311876);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .form-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(63, 81, 181, 0.3);
+        }
+
+        .form-container p {
+            color: #888;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        .form-container p a {
+            color: #3f51b5;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .form-container p a:hover {
+            color: #2196f3;
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .left-side, .right-side {
+                flex: none;
+                height: 50vh;
+                padding: 20px;
+            }
+            
+            .features-heading {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+            
+            .feature-item {
+                margin-bottom: 15px;
+            }
+            
+            .feature-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Side - Features -->
+    <div class="left-side">
+        <div class="features-container">
+            <h1 class="features-heading">Join JobHub Today</h1>
+            
+            <div class="feature-item">
+                <div class="feature-icon">✨</div>
+                <div class="feature-text">Create your professional profile in minutes</div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-text">Get matched with perfect job opportunities</div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🤝</div>
+                <div class="feature-text">Network with industry professionals</div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <div class="feature-text">Access powerful career analytics and insights</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side - Register Form -->
+    <div class="right-side">
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <p class="subtitle">Create your account and start your journey</p>
+            <form>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                
+                <button type="submit"><a href="/sign_in.html">Sign Up</a></button>
+            </form>
+            <p>Already have an account? <a href="/sign_in.html">Sign In</a></p>
+        </div>
+    </div>
+</body>
+</html>

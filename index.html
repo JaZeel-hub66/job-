@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobHub - Loading</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle at center, #15092b 0%, #080808 70%);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Loading Page */
+        .loading-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Loader Animation */
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 30px;
+        }
+
+        .loader-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .loader-ring:nth-child(1) {
+            border-top: 4px solid #2833d6;
+            animation-delay: 0s;
+        }
+
+        .loader-ring:nth-child(2) {
+            border-right: 4px solid #2196f3;
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0.2s;
+        }
+
+        .loader-ring:nth-child(3) {
+            border-bottom: 4px solid #81d0f5;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            animation-delay: 0.4s;
+        }
+
+        .loading-text {
+            color: #ffffff;
+            font-size: 28px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .loading-subtitle {
+            color: #90a4ae;
+            font-size: 16px;
+        }
+
+        /* Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Page -->
+    <div class="loading-page" id="loadingPage">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+        </div>
+        <div class="loading-text">JobHub</div>
+        
+    </div>
+
+    <script>
+
+        setTimeout(function() {
+            document.getElementById('loadingPage').classList.add('fade-out');
+
+            setTimeout(function() {
+                window.location.href = "/sign_in.html";
+            }, 400);
+            
+        }, 1000);
+    </script>
+</body>
+</html>
